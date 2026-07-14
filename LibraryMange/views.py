@@ -14,7 +14,7 @@ def two_sum(request):
         a = int(request.POST.get("num1", 0))
         b = int(request.POST.get("num2", 0))
         
-        result = a + b 
+        result = a - b 
     
     return render(request , 'home.html' , {"result":result})
     
