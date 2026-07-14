@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Home Page </h1>
+
+    <p>Here Show Two Values Of  Sum :</p>
+     
+    <form action="{% url 'two_sum' %}" method="POST">
+        {% csrf_token %}
+        
+        
+        <label for="firstnum"></label>
+        <input type="number" , placeholder="enter your First Number:" id="firstnum" name="num1">
+
+        <label for="secnum"></label>
+        <input type="number" , placeholder="enter your First Number:" id="secnum" name="num2">
+
+        <button type="submit">Sumbit</button>
+
+    </form>
+
+
+    <h3>Ans Shows Here ... </h3>
+    {% if result %}
+    <h1>{{ result }}</h1>
+    {% endif %}
+
+</body>
+</html>
