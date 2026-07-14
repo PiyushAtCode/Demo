@@ -3,32 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Two Sum App</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f7fc;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            width:400px;
+            background:#fff;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:10px;
+        }
+
+        p{
+            text-align:center;
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:#007bff;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            background:#007bff;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        .result{
+            margin-top:20px;
+            text-align:center;
+            padding:15px;
+            background:#e8f5e9;
+            border-radius:8px;
+        }
+
+        .result h2{
+            color:green;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>Home Page </h1>
 
-    <p>Here Show Two Values Of  Sum :</p>
-     
+<div class="container">
+
+    <h1>Two Sum Calculator</h1>
+
+    <p>Enter two numbers to calculate their sum.</p>
+
     <form action="{% url 'two_sum' %}" method="POST">
         {% csrf_token %}
-        
-        
-        <label for="firstnum"></label>
-        <input type="number" , placeholder="enter your First Number:" id="firstnum" name="num1">
 
-        <label for="secnum"></label>
-        <input type="number" , placeholder="enter your First Number:" id="secnum" name="num2">
+        <input
+            type="number"
+            placeholder="Enter First Number"
+            name="num1"
+            required
+        >
 
-        <button type="submit">Sumbit</button>
+        <input
+            type="number"
+            placeholder="Enter Second Number"
+            name="num2"
+            required
+        >
+
+        <button type="submit">Calculate Sum</button>
 
     </form>
 
-
-    <h3>Ans Shows Here ... </h3>
-    {% if result %}
-    <h1>{{ result }}</h1>
+    {% if result is not None %}
+    <div class="result">
+        <h3>Result</h3>
+        <h2>{{ result }}</h2>
+    </div>
     {% endif %}
+
+</div>
 
 </body>
 </html>

@@ -11,8 +11,8 @@ def two_sum(request):
     result = None 
     
     if request.method == "POST":
-        a = int(request.POST["num1"])
-        b = int(request.POST["num2"])
+        a = int(request.POST.get("num1", 0))
+        b = int(request.POST.get("num2", 0))
         
         result = a + b 
     
