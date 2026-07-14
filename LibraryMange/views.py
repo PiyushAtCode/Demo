@@ -19,6 +19,6 @@ def two_sum(request):
     return render(request , 'home.html' , {"result":result})
     
     
-def home(request)
+def home(request):
     return render(request, "home.html")
 
