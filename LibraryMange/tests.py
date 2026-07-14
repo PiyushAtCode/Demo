@@ -19,4 +19,4 @@ class TwoSumTest(TestCase):
         )
 
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "30")
+        self.assertEqual(response.context["result"], 30)
